@@ -7,7 +7,7 @@ FROM openkbs/jdk-mvn-py3
 ARG IDE=ideaIU
 ARG IDE_SHORT=idea
 ARG IDE_CODE=idea
-ARG IDE_VERSION=2021.3
+ARG IDE_VERSION=2022.2
 
 # persist build args for runtime
 # see https://www.saltycrane.com/blog/2021/04/buildtime-vs-runtime-environment-variables-nextjs-docker/#setting-dynamic-buildtime-environment-variables-that-are-available-at-runtime-also
@@ -17,12 +17,12 @@ ENV IDE_CODE=$IDE_CODE
 ENV IDE_VERSION=$IDE_VERSION
 
 ARG IDE_TAR=${IDE}-${IDE_VERSION}.tar.gz
-ARG CDN_LAYOUT_TOOL_VERSION=0.8.65
+ARG CDN_LAYOUT_TOOL_VERSION=0.8.66
 
 # Runtime variables
-ENV INDEXES_CDN_URL=http://localhost:3000/project
-ENV COMMIT_ID=''
 ENV PROJECT_ID=''
+ENV INDEXES_CDN_URL=https://s3.amazonaws.com/dudatest-just4test/intellij-shared-indexes/project/${PROJECT_ID}
+ENV COMMIT_ID=''
 ENV IDEA_PROJECT_DIR="/var/project"
 ENV SHARED_INDEX_BASE="/shared-index"
 

@@ -14,8 +14,9 @@ Shared indexes are often hosted on a CDN and used by IDEs to speed up loading (i
     docker run -it --rm \
         -v "$(pwd)":/var/project \
         -v "$HOME/indexes-out":/shared-index \
-        -e INDEXES_CDN_URL=http://localhost:3000/project \
-        bencdr/indexer:idea-2021.3
+        -e INDEXES_CDN_URL=https://s3.amazonaws.com/dudatest-just4test/intellij-shared-indexes/project/monolith \
+        -e PROJECT_ID=duda \
+        indexer
         
     # you may need to fix the file permissions for the generated indexes
     sudo chown -R $(id -u):$(id -g) $HOME/indexes-out
